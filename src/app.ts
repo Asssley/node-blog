@@ -1,6 +1,15 @@
 import express, { Express } from "express";
+import mongoose from "mongoose";
 import morgan from "morgan";
 import { createPath } from "./utils/createPath";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+
+mongoose
+.connect(process.env.MONGO_URI as string)
+.then((res) => console.log("Succesfully conected to DB"))
+.catch((err) => console.log(err));
 
 const PORT = 3000;
 
@@ -23,6 +32,7 @@ app.get('/favicon.ico', (req, res) => {
 app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
   res.status(204).end();
 });
+
 
 
 app.use((req, res) => {
