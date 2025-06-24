@@ -11,7 +11,7 @@ export const getAllPosts = (req: Request, res: Response) => {
   Post
     .find()
     .sort({ date: -1 })
-    .then((posts: IPost[]) => res.render(createPath("posts"), { title: "Posts", posts}))
+    .then((posts: IPost[]) => res.render(createPath("posts"), { title: "Posts", posts }))
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 
@@ -22,12 +22,16 @@ export const getPostById = (req: Request, res: Response) => {
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 
+export const getnewPostForm = (req: Request, res: Response) => {
+  res.render(createPath("newPostForm"), { title: "Add post" });
+}
+
 export const addPost = (req: Request, res: Response) => {
   const { title, author, text } = req.body;
   const post = new Post({ title, author, text, date: new Date });
   post
     .save()
-    .then((newPost) => res.json(newPost))
+    .then((newPost) => res.redirect("/posts"))
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 

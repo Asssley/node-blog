@@ -1,4 +1,4 @@
-import { Schema, Model } from "mongoose";
+import { Schema, Model, model } from "mongoose";
 
 export interface IPost {
   title: string,
@@ -14,4 +14,4 @@ const postSchema: Schema<IPost> = new Schema<IPost>({
   date: { type: Date, required: true }
 });
 
-export const Post: Model<IPost> = new Model("posts", postSchema);
+export const Post: Model<IPost> = model<IPost>("Post", postSchema);

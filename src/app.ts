@@ -28,16 +28,9 @@ app.get("/", (req, res) => {
 
 app.use(postRouter);
 
-// app.get('/favicon.ico', (req, res) => {
-//   res.status(204).end();
-// });
-
-// app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
-//   res.status(204).end();
-// });
-
 app.use((req, res) => {
   res.render(createPath("errorPage"), {title: "Error", errCode: 404, errMessage: "Page Not Found"});
 });
 
 app.listen(PORT, (error) => error ? console.log(error) : console.log(`Server listening port ${PORT}`));
+  

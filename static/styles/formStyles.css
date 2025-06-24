@@ -1,0 +1,30 @@
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+input,
+textarea {
+  width: 50%;
+  background-color: rgb(230, 232, 234);
+  border: #1f2327 solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+input[type=submit] {
+  width: 25%;
+  background-color: #1f2327;
+  color: rgb(230, 232, 234);
+  height: 6vh;
+}
+
+.form-element {
+  display: block;
+  color: #1f2327;
+  font-size: 110%;
+  padding-bottom: 2vh;
+}

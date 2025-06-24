@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("./partials/head.ejs") %>
+<head>
+  <%- include("./partials/head.ejs") %>
+  <link rel="stylesheet" href="./styles/formStyles.css">
+</head>
 
-  <body>
-    <%- include("./partials/header.ejs")%>
-      <main>
-        <div class="main_contaner">
+<body>
+  <%- include("./partials/header.ejs")%>
+    <main>
+      <div class="main-contaner">
+        <div class="main-title">
           <h1>Add new post</h1>
+        </div>
+        <div class="alight-center">
           <form action="/post" method="post">
-            <label for="title">
-              Title
-              <input type="text" name="title" placeholder="title">
-            </label>
-            <label for="author">
-              Author
-              <input type="text" name="author" placeholder="title">
-            </label>
-            <label for="text">
-              Text
-              <textarea name="text" cols="30" rows="10" placeholder="text"></textarea>
-            </label>
+            <div class="form-element">
+              <label for="title">
+                Title
+              </label>
+              <input id="title" type="text" name="title" required placeholder="title">
+            </div>
+            <div class="form-element">
+              <label for="author">
+                Author
+              </label>
+              <input id="author" type="text" name="author" placeholder="author">
+            </div>
+            <div class="form-element">
+              <label for="text">
+                Text
+              </label>
+              <textarea id="text" name="text" cols="30" rows="5" required placeholder="text"></textarea>
+            </div>
+            <input type="submit">  
           </form>
         </div>
-      </main>
-      <%- include("./partials/footer.ejs")%>
+      </div>
+    </main>
+    <%- include("./partials/footer.ejs")%>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 
 </html>
