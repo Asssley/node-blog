@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(morgan(':method :url :status - :response-time ms'));
 
 app.get("/", (req, res) => {
-  res.sendFile(createPath("index"));
+  res.render(createPath("index"), {title: "Blog"});
 });
 
 app.use(postRouter);
@@ -37,7 +37,7 @@ app.use(postRouter);
 // });
 
 app.use((req, res) => {
-  res.sendFile(createPath("errorPage"));
+  res.render(createPath("errorPage"), {title: "Error"});
 });
 
 app.listen(PORT, (error) => error ? console.log(error) : console.log(`Server listening port ${PORT}`));
