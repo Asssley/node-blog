@@ -1,8 +1,9 @@
 import express, { Express } from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
-import { createPath } from "./utils/createPath";
 import * as dotenv from "dotenv";
+import { createPath } from "./utils/createPath";
+import { postRouter } from "./routers/postRouter";
 
 dotenv.config();
 
@@ -25,15 +26,15 @@ app.get("/", (req, res) => {
   res.sendFile(createPath("index"));
 });
 
-app.get('/favicon.ico', (req, res) => {
-  res.status(204).end();
-});
+app.use(postRouter);
 
-app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
-  res.status(204).end();
-});
+// app.get('/favicon.ico', (req, res) => {
+//   res.status(204).end();
+// });
 
-
+// app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+//   res.status(204).end();
+// });
 
 app.use((req, res) => {
   res.sendFile(createPath("errorPage"));
