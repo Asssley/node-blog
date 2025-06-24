@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/head.ejs") %>
+
+  <body>
+    <%- include("./partials/header.ejs")%>
+      <main>
+        <div class="main_contaner">
+          <h1>Add new post</h1>
+          <form action="/post" method="post">
+            <label for="title">
+              Title
+              <input type="text" name="title" placeholder="title">
+            </label>
+            <label for="author">
+              Author
+              <input type="text" name="author" placeholder="title">
+            </label>
+            <label for="text">
+              Text
+              <textarea name="text" cols="30" rows="10" placeholder="text"></textarea>
+            </label>
+          </form>
+        </div>
+      </main>
+      <%- include("./partials/footer.ejs")%>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>

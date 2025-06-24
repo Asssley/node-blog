@@ -1,24 +1,20 @@
 import { Router } from "express";
-import { createPath } from "../utils/createPath";
+import {
+  getAllPosts,
+  getPostById,
+  addPost,
+  editPostById,
+  deletePostById
+} from "../controllers/postController";
 
 export const postRouter: Router = Router();
 
-postRouter.get("/posts", (req, res) => {
-  res.render(createPath("posts"), {title: "Posts"});
-});
+postRouter.get("/posts", getAllPosts);
 
-postRouter.get("/post:id", (req, res) => {
+postRouter.get("/post:id", getPostById);
 
-});
+postRouter.post("/post", addPost);
 
-postRouter.post("/post", (req, res) => {
+postRouter.put("/post:id", editPostById);
 
-});
-
-postRouter.put("/post:id", (req, res) => {
-
-});
-
-postRouter.delete("/post:id", (req, res) => {
-
-});
+postRouter.delete("/post:id", deletePostById);

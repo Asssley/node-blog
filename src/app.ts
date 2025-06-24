@@ -37,7 +37,7 @@ app.use(postRouter);
 // });
 
 app.use((req, res) => {
-  res.render(createPath("errorPage"), {title: "Error"});
+  res.render(createPath("errorPage"), {title: "Error", errCode: 404, errMessage: "Page Not Found"});
 });
 
 app.listen(PORT, (error) => error ? console.log(error) : console.log(`Server listening port ${PORT}`));
