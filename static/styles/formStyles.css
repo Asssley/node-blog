@@ -22,6 +22,18 @@ input[type=submit] {
   height: 6vh;
 }
 
+@media screen and (max-width: 1000px) {
+
+  input,
+  textarea {
+    width: 80%;
+  }
+
+  input[type=submit] {
+    width: 50%;
+  }
+}
+
 .form-element {
   display: block;
   color: #1f2327;

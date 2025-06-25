@@ -4,7 +4,7 @@ import { createPath } from "../utils/createPath";
 
 const errorHandler = (res: Response, error: Error, errCode: number, errMessage: string) => {
   console.log(error);
-  res.render(createPath("errorPage"), { title: "Error", errCode, errMessage })
+  res.status(errCode).render(createPath("errorPage"), { title: "Error", errCode, errMessage });
 }
 
 export const getAllPosts = (req: Request, res: Response) => {
@@ -18,7 +18,7 @@ export const getAllPosts = (req: Request, res: Response) => {
 export const getPostById = (req: Request, res: Response) => {
   Post
     .findById(req.params.id)
-    .then((post: IPost | null) => res.json(post))
+    .then((post: IPost | null) => res.render(createPath("post"), { title: "Post", post }))
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 

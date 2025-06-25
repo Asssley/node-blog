@@ -1,0 +1,24 @@
+.post-description {
+  display: inline;
+  margin-bottom: 2vh;
+}
+
+.rigth-side-description {
+  float: right;
+}
+
+.alight-center {
+  text-align: justify;
+}
+
+.text {
+  text-indent: 2em;
+  margin-top: 1em;
+  display: block;
+  width: 100%;
+} 
+
+.text p {
+  display: block;
+  font-size: 140%;
+}
