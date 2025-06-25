@@ -31,14 +31,22 @@ export const addPost = (req: Request, res: Response) => {
   const post = new Post({ title, author, text, date: new Date });
   post
     .save()
-    .then((newPost) => res.redirect("/posts"))
+    .then(() => res.redirect("/posts"))
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 
 export const editPostById = (req: Request, res: Response) => {
+  const { title, author, text } = req.body;
 
+  Post
+    .findByIdAndUpdate(req.params.id, { title, author, text }, { new: true })
+    .then(() => res.redirect(`/post/${req.params.id}`))
+    .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 
 export const deletePostById = (req: Request, res: Response) => {
-
+  Post
+    .findByIdAndDelete(req.params.id)
+    .then(() => res.redirect("/posts"))
+    .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
