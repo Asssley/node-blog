@@ -40,3 +40,15 @@ a:hover {
   margin-bottom: 7vh;
   padding-bottom: 5vh;
 }
+
+.buttons {
+  float: right;
+}
+
+.buttons button {
+  background-color: #1f2327;
+  color: rgb(230, 232, 234);
+  min-width: 100px;
+  border-radius: 5px;
+  margin-left: 15px;
+}

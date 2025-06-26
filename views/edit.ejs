@@ -11,29 +11,29 @@
     <main>
       <div class="main-contaner">
         <div class="main-title">
-          <h1>Add new post</h1>
+          <h1>Edit post</h1>
         </div>
         <div class="alight-center">
-          <form action="/post" method="post">
+          <form action="/edit-post/<%= post._id %>?_method=PUT" method="post">
             <div class="form-element">
               <label for="title">
                 Title
               </label>
-              <input id="title" type="text" name="title" required placeholder="title">
+              <input id="title" type="text" name="title" required placeholder="title" value="<%= post.title %>">
             </div>
             <div class="form-element">
               <label for="author">
                 Author
               </label>
-              <input id="author" type="text" name="author" placeholder="author">
+              <input id="author" type="text" name="author" placeholder="author" value="<%= post.author %>">
             </div>
             <div class="form-element">
               <label for="text">
                 Text
               </label>
-              <textarea id="text" name="text" cols="30" rows="5" required placeholder="text"></textarea>
+              <textarea id="text" name="text" cols="30" rows="5" required placeholder="text"><%= post.text %></textarea>
             </div>
-            <input type="submit" value="Add post">  
+            <input type="submit" value="Edit post">  
           </form>
         </div>
       </div>

@@ -35,6 +35,13 @@ export const addPost = (req: Request, res: Response) => {
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 
+export const getEditPost = (req: Request, res: Response) => {
+  Post
+    .findById(req.params.id)
+    .then((post: IPost | null) => res.render(createPath("edit"), { title: "Edit", post }))
+    .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
+}
+
 export const editPostById = (req: Request, res: Response) => {
   const { title, author, text } = req.body;
 
@@ -47,6 +54,6 @@ export const editPostById = (req: Request, res: Response) => {
 export const deletePostById = (req: Request, res: Response) => {
   Post
     .findByIdAndDelete(req.params.id)
-    .then(() => res.redirect("/posts"))
+    .then(() => res.sendStatus(200))
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }

@@ -15,6 +15,6 @@ apiPostRouter.get("/api/post/:id", getPostById);
 
 apiPostRouter.post("/api/post", addPost);
 
-apiPostRouter.put("/api/post/:id", editPostById);
+apiPostRouter.put("/api/edit-post/:id", editPostById);
 
 apiPostRouter.delete("/api/post/:id", deletePostById);

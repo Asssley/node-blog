@@ -38,7 +38,7 @@ export const editPostById = (req: Request, res: Response) => {
 
   Post
     .findByIdAndUpdate(req.params.id, { title, author, text }, { new: true })
-    .then((editedPost: IPost | null) => res.json(editedPost))
+    .then((editedPost: IPost | null) => res.json(req.params.id))
     .catch((err: Error) => errorHandler(res, err, 500, "Internal server error"));
 }
 

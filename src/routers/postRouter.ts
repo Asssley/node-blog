@@ -4,6 +4,7 @@ import {
   getPostById,
   getnewPostForm,
   addPost,
+  getEditPost,
   editPostById,
   deletePostById
 } from "../controllers/postController";
@@ -16,8 +17,10 @@ postRouter.get("/post/:id", getPostById);
 
 postRouter.get("/new-post", getnewPostForm);
 
+postRouter.get("/edit-post/:id", getEditPost);
+
 postRouter.post("/post", addPost);
 
-postRouter.put("/post/:id", editPostById);
+postRouter.put("/edit-post/:id", editPostById);
 
 postRouter.delete("/post/:id", deletePostById);

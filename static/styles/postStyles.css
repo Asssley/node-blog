@@ -22,3 +22,16 @@
   display: block;
   font-size: 140%;
 }
+
+.buttons {
+  display: block;
+}
+
+.buttons button {
+  float: right;
+  background-color: #1f2327;
+  color: rgb(230, 232, 234);
+  min-width: 100px;
+  border-radius: 5px;
+  margin-left: 15px;
+}

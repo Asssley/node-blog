@@ -49,6 +49,10 @@
                     .map(line=> `<p>${escapeHtml(line)}</p>`)
                     .join(''); %>
               </div>
+              <div class="buttons">
+                <a href="/edit-post/<%= post.id %>"><button>Edit</button></a>
+                <button data-action="delete", data-id="<%= post.id %>">Delete</button>
+              </div>
             </div>
           <% } %>
         <% } %>
@@ -56,6 +60,17 @@
     </main>
     <%- include("./partials/footer.ejs")%>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+        document.addEventListener("click", (e) => {
+          const id = e.target?.dataset?.id || null;
+
+          if (id) {
+            fetch(`/post/${id}`, {
+              method: "DELETE"
+            }).then(window.location.href = "/posts");
+          }
+        });
+      </script>
 </body>
 
 </html>

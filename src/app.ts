@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
+import methodOverride from "method-override";
 import * as dotenv from "dotenv";
 import { createPath } from "./utils/createPath";
 import { postRouter } from "./routers/postRouter";
@@ -19,6 +20,8 @@ const app: Express = express();
 app.use(express.static("static"));
 
 app.use(express.urlencoded({ extended: false }))
+
+app.use(methodOverride("_method"));
 
 app.use(morgan(':method :url :status - :response-time ms'));
 
