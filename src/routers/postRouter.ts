@@ -17,10 +17,10 @@ postRouter.get("/post/:id", getPostById);
 
 postRouter.get("/new-post", getnewPostForm);
 
-postRouter.get("/edit-post/:id", getEditPost);
+postRouter.get("/edit/:id", getEditPost);
 
 postRouter.post("/post", addPost);
 
-postRouter.put("/edit-post/:id", editPostById);
+postRouter.put("/edit/:id", editPostById);
 
-postRouter.delete("/post/:id", deletePostById);
+postRouter.delete("/delete/:id", deletePostById);
