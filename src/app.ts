@@ -5,6 +5,7 @@ import methodOverride from "method-override";
 import * as dotenv from "dotenv";
 import { createPath } from "./utils/createPath";
 import { postRouter } from "./routers/postRouter";
+import { apiPostRouter } from "./routers/apiPostRouter";
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ app.get("/", (req, res) => {
 });
 
 app.use(postRouter);
+
+app.use(apiPostRouter);
 
 app.use((req, res) => {
   res.status(404).render(createPath("errorPage"), {title: "Error", errCode: 404, errMessage: "Page Not Found"});

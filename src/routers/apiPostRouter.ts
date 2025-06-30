@@ -4,7 +4,8 @@ import {
   getPostById,
   addPost,
   editPostById,
-  deletePostById
+  deletePostById,
+  apiError
 } from "../controllers/apiPostController";
 
 export const apiPostRouter: Router = Router();
@@ -18,3 +19,5 @@ apiPostRouter.post("/api/post", addPost);
 apiPostRouter.put("/api/edit/:id", editPostById);
 
 apiPostRouter.delete("/api/delete/:id", deletePostById);
+
+apiPostRouter.use(apiError);

@@ -48,7 +48,7 @@
         </div>
         <div class="buttons">
           <button data-action="delete", data-id="<%= post.id %>">Delete</button>
-          <a href="/edit-post/<%= post.id %>"><button>Edit</button></a>
+          <a href="/edit/<%= post.id %>"><button>Edit</button></a>
         </div>
       </div>
     </main>
@@ -59,7 +59,7 @@
           const id = e.target?.dataset?.id || null;
 
           if (id) {
-            fetch(`/post/${id}`, {
+            fetch(`/delete/${id}`, {
               method: "DELETE"
             }).then(() => {
               window.location.href = "/posts";
